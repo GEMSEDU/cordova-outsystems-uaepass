@@ -85,7 +85,7 @@ import Alamofire
                 onUAEPassFailureBlock?("cancel")
             }
             decisionHandler(.cancel, contentMode)
-        } else if urlString.contains(UAEPASSRouter.shared.spConfig.redirectUriLogin) && urlString.contains("code=") {
+        } else if urlString.lowercased().contains(UAEPASSRouter.shared.spConfig.redirectUriLogin.lowercased()) && urlString.contains("code=") {
             if let url = url, let token = url.valueOf("code") {
                 print(token)
                 print("### code Recieved : \(urlString)")
